@@ -176,6 +176,18 @@ section {
   box-shadow: var(--shadow-ambient);
 }
 
+.navbar .nav-links, .navbar .nav-cta, .navbar .nav-toggle {
+  transition: opacity 0.5s var(--ease-cinematic), filter 0.5s var(--ease-cinematic), transform 0.5s var(--ease-cinematic);
+  will-change: opacity, transform, filter;
+}
+
+.navbar.nav-hidden .nav-links, .navbar.nav-hidden .nav-cta, .navbar.nav-hidden .nav-toggle {
+  opacity: 0;
+  filter: blur(8px);
+  transform: translateY(-15px);
+  pointer-events: none;
+}
+
 .nav-container {
   display: flex;
   justify-content: space-between;
@@ -241,7 +253,13 @@ section {
   letter-spacing: 0.2em;
   border-radius: var(--radius-btn);
   transition: transform 0.4s var(--ease-cinematic), box-shadow 0.4s var(--ease-cinematic), background-color 0.4s var(--ease-cinematic);
+  will-change: transform, box-shadow;
   cursor: pointer;
+}
+
+.nav-cta {
+  padding: 0.7rem 1.8rem;
+  font-size: 0.65rem;
 }
 
 .btn-primary {
@@ -587,18 +605,21 @@ section {
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-ambient);
   padding: var(--space-md);
-  cursor: pointer;
-  transition: transform 0.6s var(--ease-cinematic), box-shadow 0.6s var(--ease-cinematic), z-index 0s;
+  cursor: default; /* Not clickable for expansion anymore */
+  transition: transform 0.5s var(--ease-cinematic), box-shadow 0.5s var(--ease-cinematic);
   position: relative;
   z-index: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  will-change: transform, box-shadow;
+  transform-origin: center center;
 }
 
 .skill-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+  transform: translateY(-6px) scale(1.02) rotateX(2deg) rotateY(-2deg);
+  box-shadow: var(--shadow-hero);
+  z-index: 10;
 }
 
 .skill-front {
@@ -681,43 +702,7 @@ section {
   transition: opacity 0.4s var(--ease-cinematic);
 }
 
-/* Expanded State */
-.skill-card.expanded {
-  z-index: 10000;
-  position: fixed;
-  top: 50%; left: 50%;
-  width: 90%;
-  max-width: 500px;
-  transform: translate(-50%, -50%) scale(1) !important; /* Override hover/reveal */
-  box-shadow: var(--shadow-hero);
-  cursor: default;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.skill-card.expanded .skill-front {
-  display: none; /* Hide front summary when expanded */
-}
-
-.skill-card.expanded .skill-details {
-  height: auto;
-  opacity: 1;
-  overflow: visible;
-}
-
-.skill-card.expanded .skill-details-content {
-  padding-top: 0; margin-top: 0; border-top: none;
-}
-
-.skill-card.expanded .skill-close {
-  opacity: 1;
-  pointer-events: all;
-  cursor: pointer;
-}
-.skill-close:hover {
-  background: var(--text-primary);
-  color: #FFF;
-}
+/* Expanded State Removed per user request for premium hover only */
 
 /* ============================================================
    EXPERIENCE MILESTONES (Editorial Layout)
@@ -1386,20 +1371,34 @@ section {
   }
   
   /* Typography */
-  .title-xl { font-size: 2.5rem; }
-  .title-lg { font-size: 2.2rem; }
-  .title-md { font-size: 1.6rem; }
+  .title-xl { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+  .title-lg { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+  .title-md { font-size: clamp(1.4rem, 5vw, 1.8rem); }
   
-  /* Hero adjustments - maintain 2 columns */
+  /* Hero adjustments - premium balanced composition side-by-side */
   .hero { min-height: 80vh; padding-top: 80px; }
   .hero-grid { 
-    grid-template-columns: 1.2fr 1fr; 
-    gap: var(--space-sm); 
+    grid-template-columns: 1fr 1fr; 
+    gap: var(--space-md); 
+    align-items: center; /* Vertically align text block with center of card */
   }
-  .playing-card { width: 100%; max-width: 220px; }
-  .hero-desc { font-size: 0.9rem; line-height: 1.6; }
-  .btn-primary, .btn-secondary { padding: 0.8rem 1.5rem; font-size: 0.6rem; }
-  .hero-subtitle { font-size: 0.6rem; margin-bottom: var(--space-xs); }
+  .playing-card { width: 100%; max-width: 240px; margin: 0 auto; }
+  .hero-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: var(--space-md); }
+  .hero-subtitle { font-size: 0.65rem; margin-bottom: var(--space-sm); }
+  
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+    padding: 0.9rem 1.5rem;
+    font-size: 0.65rem;
+  }
   
   section { padding: var(--space-xl) 0; }
   
@@ -1410,7 +1409,6 @@ section {
   .projects-grid { grid-template-columns: 1fr; }
   
   /* Card expanded state */
-  .skill-card.expanded,
   .project-card.expanded {
     width: 95%;
     max-width: none;
@@ -1438,34 +1436,29 @@ section {
 
 /* ============================================================
    RESPONSIVE — SMALL MOBILE (max-width: 480px)
-============================================================ */
+=========================================================== */
 @media (max-width: 480px) {
   .container { padding: 0 1.25rem; }
-  .title-xl { font-size: 1.8rem; }
-  .title-lg { font-size: 1.6rem; }
+  .title-xl { font-size: clamp(1.8rem, 7vw, 2.2rem); }
   
   section { padding: var(--space-lg) 0; }
   
-  /* Hero adjustments - maintain 2 columns */
+  /* Hero adjustments - tight side-by-side */
   .hero-grid { 
-    grid-template-columns: 1.3fr 1fr; 
-    gap: 0.5rem; 
+    grid-template-columns: 1.2fr 1fr; 
+    gap: 0.75rem; 
   }
-  .playing-card { width: 100%; max-width: 160px; }
-  .hero-desc { font-size: 0.8rem; margin-bottom: 1rem; }
-  .hero-subtitle { font-size: 0.5rem; }
+  .playing-card { width: 100%; max-width: 180px; }
+  .hero-desc { font-size: 0.8rem; margin-bottom: var(--space-sm); }
+  .hero-subtitle { font-size: 0.55rem; margin-bottom: var(--space-xs); }
   
   .hero-actions {
-    flex-direction: column;
     gap: 0.5rem;
-    align-items: flex-start;
   }
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary {
-    width: 100%;
-    max-width: 200px;
-    padding: 0.6rem 1rem;
-    font-size: 0.55rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.6rem;
   }
   
   .project-thumb { height: 180px; }

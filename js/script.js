@@ -7,13 +7,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.querySelector('.navbar');
   const navLinks = document.querySelectorAll('.nav-link');
   const sections = document.querySelectorAll('section');
+  let lastScrollY = window.scrollY;
   
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    const currentScrollY = window.scrollY;
+    
+    // Add scrolled background
+    if (currentScrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
+    
+    // Scroll direction fade out/in (Navigation contents)
+    if (currentScrollY > lastScrollY && currentScrollY > 150) {
+      // Scrolling down -> fade out contents
+      navbar.classList.add('nav-hidden');
+    } else {
+      // Scrolling up -> fade in contents
+      navbar.classList.remove('nav-hidden');
+    }
+    lastScrollY = currentScrollY;
     
     // Active link highlighting
     let current = '';
@@ -194,49 +208,5 @@ document.addEventListener('DOMContentLoaded', () => {
     ticker.innerHTML = html;
   });
   
-  // 5. Expanding Skill Cards
-  const skillCards = document.querySelectorAll('.skill-card');
-  const uiOverlay = document.getElementById('uiOverlay');
-  
-  if (skillCards.length && uiOverlay) {
-    // Open card
-    skillCards.forEach(card => {
-      card.addEventListener('click', (e) => {
-        // If clicking close, ignore this handler
-        if (e.target.closest('.skill-close')) return;
-        
-        // Close any currently expanded card
-        skillCards.forEach(c => c.classList.remove('expanded'));
-        
-        card.classList.add('expanded');
-        uiOverlay.classList.add('active');
-        
-        // Optional: lock body scroll when expanded
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    // Close logic
-    const closeExpanded = () => {
-      skillCards.forEach(c => c.classList.remove('expanded'));
-      uiOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    };
-
-    uiOverlay.addEventListener('click', closeExpanded);
-    
-    document.querySelectorAll('.skill-close').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation(); // prevent card click triggering open again
-        closeExpanded();
-      });
-    });
-    
-    // Close on escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeExpanded();
-    });
-  }
-
-
-});
+  // 5. Skill Cards (Interaction replaced by CSS hover)
+  // JS expanding logic removed per user request for premium hover only
