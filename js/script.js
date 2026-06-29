@@ -238,44 +238,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 6. Expanding Project Cards
-  const projectCards = document.querySelectorAll('.project-card');
-  
-  if (projectCards.length && uiOverlay) {
-    const closeProject = () => {
-      projectCards.forEach(c => c.classList.remove('expanded'));
-      uiOverlay.classList.remove('active');
-      document.body.style.overflow = '';
-    };
 
-    projectCards.forEach(card => {
-      // Open on click of the inner area (not close button)
-      card.addEventListener('click', (e) => {
-        if (e.target.closest('.project-close')) return;
-        if (card.classList.contains('expanded')) return;
-        projectCards.forEach(c => c.classList.remove('expanded'));
-        card.classList.add('expanded');
-        uiOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      });
-    });
-
-    document.querySelectorAll('.project-close').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeProject();
-      });
-    });
-
-    uiOverlay.addEventListener('click', () => {
-      closeProject();
-      // Also close skill cards if open
-      document.querySelectorAll('.skill-card.expanded').forEach(c => c.classList.remove('expanded'));
-      document.body.style.overflow = '';
-    });
-    
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeProject();
-    });
-  }
 });
