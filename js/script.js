@@ -210,3 +210,4 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // 5. Skill Cards (Interaction replaced by CSS hover)
   // JS expanding logic removed per user request for premium hover only
+});
