@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MD Sakib — Jack of All Trades | Social Media Specialist & AI Generalist</title>
+  <meta name="description" content="MD Sakib — Social Media Specialist, Digital Marketer & AI Generalist based in Kolkata, India. Specializing in AI automation, WhatsApp chatbots, digital marketing, and creative strategy.">
+  <meta name="author" content="MD Sakib">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#FCFBFA">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MD Sakib — Jack of All Trades">
+  <meta property="og:description" content="Social Media Specialist, Digital Marketer & AI Generalist. Building complete solutions across disciplines.">
+  <meta property="og:image" content="assets/my_profile.jpg">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MD Sakib — Jack of All Trades">
+  <meta name="twitter:description" content="Social Media Specialist, Digital Marketer & AI Generalist.">
+  
+  <!-- Fonts (preconnect for performance) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,400;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- UI Overlay for Expanding Cards -->
+  <div class="ui-overlay" id="uiOverlay"></div>
+
+  <!-- Skip to content for accessibility -->
+  <a href="#home" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container nav-container">
+      <a href="#" class="logo" aria-label="MD Sakib — Home">MD <span>Sakib</span></a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#experience" class="nav-link">Experience</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+      </ul>
+      <a href="#contact" class="btn-primary nav-cta">Let's Talk</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-grid">
+      
+      <div class="hero-content reveal">
+        <div class="hero-subtitle">Kolkata, India — 2026</div>
+        <h1 class="title-xl hero-title" style="white-space: nowrap;">Jack of All<br><span class="serif-italic">Trades.</span></h1>
+        <p class="text-lead hero-desc">
+          I don't claim mastery in every discipline. Instead, I learn quickly, connect different fields, and build complete solutions.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">Explore Work</a>
+          <a href="#about" class="btn-secondary">My Story</a>
+        </div>
+      </div>
+
+      <div class="card-container reveal" style="transition-delay: 0.1s;">
+        <div class="playing-card interactive-card">
+          <div class="card-face card-front" style="background: #000;">
+            <!-- Ensure local asset reference -->
+            <img src="assets/jack_front_full.jpg" alt="Jack of All Trades Illustration" style="width: 100%; height: 100%; object-fit: contain; border-radius: calc(var(--radius-card) - 6px);" onerror="this.src='https://via.placeholder.com/400x560?text=assets/jack_card.png'">
+          </div>
+          
+          <div class="card-face card-back">
+            <!-- Ensure local asset reference -->
+            <img src="assets/jack_back_portrait.jpg" alt="MD Sakib Profile" class="card-profile-img" onerror="this.src='https://via.placeholder.com/400x560?text=assets/my_profile.jpg'">
+            <div class="card-badge">Original</div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- Hero Ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker"></div> <!-- Filled via JS -->
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="section-label reveal">About Me</div>
+      
+      <div class="about-editorial reveal">
+        <h2 class="title-lg" style="margin-bottom: 2rem;">Adaptive by <span class="serif-italic">Nature.</span> <br>Curious by Design.</h2>
+        
+        <div class="about-columns">
+          <div class="about-col">
+            <p class="text-lead">
+              I am a results-driven Social Media Specialist and Digital Marketer who bridges the gap between creative strategy and technical execution. My philosophy is simple: tools change, but the ability to solve problems across disciplines is permanent. 
+            </p>
+            <br>
+            <p class="text-lead">
+              I embrace the "Jack of All Trades" identity. I don't confine myself to a single vertical. Instead, I specialize in combining creativity, AI automation, marketing, and technology to build systems that scale and deliver measurable outcomes.
+            </p>
+          </div>
+          <div class="about-col">
+            <p class="text-lead">
+              From architecting complex WhatsApp AI chatbots (Jarvis) to crafting high-converting viral LinkedIn carousels, and single-handedly developing production-ready native Android apps (Muscle Studio) with zero server downtime—I write the code, design the assets, and execute the strategy. 
+            </p>
+            <br>
+            <p class="text-lead">
+              I believe in building in public, maintaining relentless curiosity, and shipping products that move the needle. This multidisciplinary mindset allows me to see the entire chessboard, connecting marketing objectives directly to technical architectures.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Deck Section (Expanding Cards) -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-label reveal" style="justify-content: center; margin-bottom: 1rem;">The Arsenal</div>
+      <h2 class="title-md reveal" style="text-align: center; margin-bottom: 3rem;">My Actual <span class="serif-italic">Skills.</span></h2>
+      
+      <div class="skills-grid" id="skillsGrid">
+        
+        <!-- Skill 1 -->
+        <div class="skill-card reveal">
+          <div class="skill-front">
+            <h3 class="skill-title">AI Automation</h3>
+            <div class="skill-indicator">+</div>
+          </div>
+          <div class="skill-details">
+            <div class="skill-details-content">
+              <h4>AI Automation</h4>
+              <p>Designing intelligent workflows to eliminate repetitive tasks and scale business operations.</p>
+              <div class="skill-meta">
+                <strong>Tools:</strong> Make.com, n8n, OpenAI API, Claude AI<br>
+                <strong>Application:</strong> Built repeatable AI-powered content engines producing carousels and copy at scale.
+              </div>
+            </div>
+            <button class="skill-close">×</button>
+          </div>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="skill-card reveal" style="transition-delay: 0.05s;">
+          <div class="skill-front">
+            <h3 class="skill-title">WhatsApp AI Agent Dev</h3>
+            <div class="skill-indicator">+</div>
+          </div>
+          <div class="skill-details">
+            <div class="skill-details-content">
+              <h4>WhatsApp AI Agent Dev</h4>
+              <p>Architecting conversational AI agents directly integrated with the WhatsApp Cloud API.</p>
+              <div class="skill-meta">
+                <strong>Tools:</strong> WhatsApp Cloud API, Custom Webhooks<br>
+                <strong>Application:</strong> Developed 'Jarvis', handling automated replies, complex conversational flows, and routing logic with zero downtime.
+              </div>
+            </div>
+            <button class="skill-close">×</button>
+          </div>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="skill-card reveal" style="transition-delay: 0.1s;">
+          <div class="skill-front">
+            <h3 class="skill-title">Digital Marketing</h3>
+            <div class="skill-indicator">+</div>
+          </div>
+          <div class="skill-details">
+            <div class="skill-details-content">
+              <h4>Digital Marketing</h4>
+              <p>End-to-end campaign design aligning creative output with measurable business objectives.</p>
+              <div class="skill-meta">
+                <strong>Application:</strong> Managed multi-platform strategies combining organic reach and paid amplification to drive tangible growth.
+              </div>
+            </div>
+            <button class="skill-close">×</button>
+          </div>
+        </div>
+
+        <!-- Skill 4 -->
+        <div class="skill-card reveal" style="transition-delay: 0.15s;">
+          <div class="skill-front">
+            <h3 class="skill-title">SEO</h3>
+            <div class="skill-indicator">+</div>
+          </div>
+          <div class="skill-details">
+            <div class="skill-details-content">
+              <h4>Search Engine Optimization</h4>
+              <p>Optimizing content architecture and copywriting to ensure discoverability and rank dominance.</p>
+              <div class="skill-meta">
+                <strong>Philosophy:</strong> Write for humans, optimize for algorithms.
+              </div>
+            </div>
+            <button class="skill-close">×</button>
+          </div>
+        </div>
+
+        <!-- Skill 5 -->
+        <div class="skill-card reveal" style="transition-delay: 0.2s;">
+          <div class="skill-front">
+            <h3 class="skill-title">SMM & Management</h3>
+            <div class="skill-indicator">+</div>
+          </div>
+          <div class="skill-details">
+            <div class="skill-details-content">
+              <h4>Social Media Management</h4>
+              <p>Curating, scheduling, and engaging with online communities to build loyal brand followings.</p>
+              <div class="skill-meta">
+                <strong>Projects:</strong> Managed content creation across three simultaneous client Instagram pages at Watermelon Digital Marketing.
+              </div>
+            </div>
+            <button class="skill-close">×</button>
+          </div>
+        </div>
+
+        <!-- Skill 6 -->
+        <div class="skill-card reveal" style="transition-delay: 0.25s;">
+          <div class="skill-front">
+            <h3 class="skill-title">Graphic Design</h3>
+            <div class="skill-indicator">+</div>
+          </div>
+          <div class="skill-details">
+            <div class="skill-details-content">
+              <h4>Graphic Design</h4>
+              <p>Crafting high-fidelity visual assets, from YouTube thumbnails to brand identity sets.</p>
+              <div class="skill-meta">
+                <strong>Tools:</strong> Photoshop, Canva<br>
+                <strong>Application:</strong> Designed 'Founder Story Gold Edition', logos, and countless viral carousels.
+              </div>
+            </div>
+            <button class="skill-close">×</button>
+          </div>
+        </div>
+
+        <!-- Skill 7 -->
+        <div class="skill-card reveal" style="transition-delay: 0.3s;">
+          <div class="skill-front">
+            <h3 class="skill-title">Content Strategy</h3>
+            <div class="skill-indicator">+</div>
+          </div>
+          <div class="skill-details">
+            <div class="skill-details-content">
+              <h4>Content & Branding Strategy</h4>
+              <p>Developing narrative frameworks and editorial calendars that position brands as thought leaders.</p>
+              <div class="skill-meta">
+                <strong>Application:</strong> Built-in-public strategies leveraging thought leadership to establish personal brand authority.
+              </div>
+            </div>
+            <button class="skill-close">×</button>
+          </div>
+        </div>
+        
+        <!-- Skill 8 -->
+        <div class="skill-card reveal" style="transition-delay: 0.35s;">
+          <div class="skill-front">
+            <h3 class="skill-title">Video & AI Generation</h3>
+            <div class="skill-indicator">+</div>
+          </div>
+          <div class="skill-details">
+            <div class="skill-details-content">
+              <h4>Video Editing & AI Video</h4>
+              <p>Producing engaging marketing visuals, reels, and experimental AI-generated motion content.</p>
+              <div class="skill-meta">
+                <strong>Tools:</strong> Premiere Pro, CapCut, Gemini AI<br>
+                <strong>Projects:</strong> Vault contains 10+ AI videos showcasing generative motion design.
+              </div>
+            </div>
+            <button class="skill-close">×</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section (Editorial Milestones) -->
+  <section id="experience" class="about">
+    <div class="container">
+      <div class="section-label reveal" style="justify-content: center; margin-bottom: 1rem;">Career Path</div>
+      <h2 class="title-md reveal" style="text-align: center; margin-bottom: 4rem;">Career <span class="serif-italic">Milestones.</span></h2>
+      
+      <div class="experience-masonry">
+        
+        <!-- Milestone 1 -->
+        <div class="milestone-card reveal">
+          <div class="milestone-date">Aug 2025 – Oct 2025</div>
+          <h3 class="milestone-company">Watermelon Digital Marketing</h3>
+          <h4 class="milestone-role">Creative & Graphics Designer</h4>
+          <div class="milestone-body">
+            <p>Managed content creation and graphic design across three simultaneous client Instagram pages. Analyzed audience trends to inform creative direction and campaign strategy.</p>
+          </div>
+          <div class="milestone-footer">
+            <strong>Tools:</strong> Photoshop, Premiere Pro, CapCut
+          </div>
+        </div>
+        
+        <!-- Milestone 2 -->
+        <div class="milestone-card reveal" style="transition-delay: 0.1s;">
+          <div class="milestone-date">2026 – Present</div>
+          <h3 class="milestone-company">Jarvis AI Integration</h3>
+          <h4 class="milestone-role">Solo Developer</h4>
+          <div class="milestone-body">
+            <p>Built a fully functional WhatsApp AI chatbot from the ground up. Designed the entire conversation architecture, AI prompt system, and message routing logic independently.</p>
+          </div>
+          <div class="milestone-footer">
+            <strong>Tech:</strong> WhatsApp Cloud API, AI Integration
+            <br><strong>Achievement:</strong> Live with zero server downtime.
+          </div>
+        </div>
+        
+        <!-- Milestone 3 -->
+        <div class="milestone-card reveal" style="transition-delay: 0.2s;">
+          <div class="milestone-date">2026 – Present</div>
+          <h3 class="milestone-company">Muscle Studio</h3>
+          <h4 class="milestone-role">Solo Android Developer</h4>
+          <div class="milestone-body">
+            <p>Solo-built a native Android gym management app—from zero to production. Engineered live member search and WhatsApp backup features.</p>
+          </div>
+          <div class="milestone-footer">
+            <strong>Tech:</strong> Flutter, Dart, Android
+            <br><strong>Achievement:</strong> 303 members tracked in production.
+          </div>
+        </div>
+
+        <!-- Milestone 4 -->
+        <div class="milestone-card reveal" style="transition-delay: 0.3s;">
+          <div class="milestone-date">2026 – Present</div>
+          <h3 class="milestone-company">LinkedIn Content Engine</h3>
+          <h4 class="milestone-role">Strategist & Automator</h4>
+          <div class="milestone-body">
+            <p>Built a repeatable AI-powered content engine producing carousels, captions, and hooks at scale. Grew LinkedIn presence from zero using build-in-public and thought leadership strategy.</p>
+          </div>
+          <div class="milestone-footer">
+            <strong>Focus:</strong> AI Automation, Personal Branding
+          </div>
+        </div>
+        
+        <!-- Milestone 5 -->
+        <div class="milestone-card reveal" style="transition-delay: 0.4s;">
+          <div class="milestone-date">2025 – 2028</div>
+          <h3 class="milestone-company">Guru Nanak University</h3>
+          <h4 class="milestone-role">Bachelor's Degree</h4>
+          <div class="milestone-body">
+            <p>Currently pursuing undergraduate studies while building client brands and shipping personal projects simultaneously.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects (Expanding Cards) -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-label reveal" style="justify-content: center; margin-bottom: 1rem;">The Vault</div>
+      <h2 class="title-md reveal" style="text-align: center; margin-bottom: 4rem;">Featured <span class="serif-italic">Projects.</span></h2>
+      
+      <div class="projects-grid" id="projectsGrid">
+        
+        <!-- Project 01 — Jarvis Chatbot -->
+        <div class="project-card reveal" data-project="jarvis">
+          <div class="project-card-inner">
+            <div class="project-thumb">
+              <img 
+                src="assets/jarvis_project.png" 
+                alt="Jarvis AI Chatbot"
+                loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <div class="project-logo">
+                <img src="assets/jarvis_logo.jpg" alt="Jarvis Chatbot Logo">
+              </div>
+              <div class="project-card-text">
+                <div class="project-category">AI · WhatsApp Business API</div>
+                <h3 class="project-title">Jarvis Chatbot</h3>
+                <p class="project-excerpt">An AI-powered WhatsApp Business assistant automating customer conversations 24/7.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">AI</span>
+                <span class="tag">WhatsApp API</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Cloud</span>
+              </div>
+            </div>
+            <div class="project-expand-btn">
+              <span>View Project</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+          <!-- Expanded Content (inline reveal) -->
+          <div class="project-expanded-content">
+            <div class="pec-header">
+              <img src="assets/jarvis_logo.jpg" alt="Jarvis Logo" class="pec-logo">
+              <div>
+                <h3 class="pec-title">Jarvis Chatbot</h3>
+                <div class="project-category">AI Agent for WhatsApp Business</div>
+              </div>
+              <button class="project-close">×</button>
+            </div>
+            <div class="pec-body">
+              <div class="pec-section">
+                <h4>Overview</h4>
+                <p>Jarvis is an AI-powered WhatsApp Business assistant that helps businesses automate customer conversations, answer frequently asked questions, qualify leads, schedule appointments, and provide intelligent support 24 hours a day, 7 days a week — without human intervention.</p>
+              </div>
+              <div class="pec-section">
+                <h4>The Problem</h4>
+                <p>Small and mid-size businesses receive repetitive customer queries every day. Manually responding to each message is time-consuming, inconsistent, and unscalable.</p>
+              </div>
+              <div class="pec-section">
+                <h4>The Solution</h4>
+                <p>A fully automated conversational agent deployed directly inside WhatsApp. It handles the entire conversation flow intelligently, routes complex queries to a human agent, and maintains context across sessions.</p>
+              </div>
+              <div class="pec-section">
+                <h4>Key Features</h4>
+                <ul>
+                  <li>24/7 automated customer support</li>
+                  <li>Lead qualification and appointment booking</li>
+                  <li>Custom FAQ handling with contextual memory</li>
+                  <li>Smart message routing logic</li>
+                  <li>Zero server downtime since launch</li>
+                </ul>
+              </div>
+              <div class="pec-section">
+                <h4>My Role</h4>
+                <p>Sole architect and developer. Designed the entire conversation architecture, AI prompt engineering system, webhook integration, and message routing logic — end to end.</p>
+              </div>
+              <div class="pec-tags">
+                <span class="tag">AI</span>
+                <span class="tag">WhatsApp Business API</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Cloud</span>
+                <span class="tag">Chatbot</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 02 — Muscle Studio -->
+        <div class="project-card reveal" data-project="muscle" style="transition-delay:0.1s;">
+          <div class="project-card-inner">
+            <div class="project-thumb project-thumb--dark">
+              <img 
+                src="assets/muscle_studio_project.jpg" 
+                alt="Muscle Studio Gym App"
+                loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <div class="project-logo project-logo--dark">
+                <img src="assets/ms_logo.jpg" alt="Muscle Studio Logo">
+              </div>
+              <div class="project-card-text">
+                <div class="project-category">Flutter · Android</div>
+                <h3 class="project-title">Muscle Studio</h3>
+                <p class="project-excerpt">A native Android gym management application built solo from zero to production.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Android</span>
+                <span class="tag">Fitness</span>
+              </div>
+            </div>
+            <div class="project-expand-btn">
+              <span>View Project</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+          <!-- Expanded Content -->
+          <div class="project-expanded-content">
+            <div class="pec-header">
+              <img src="assets/ms_logo.jpg" alt="Muscle Studio Logo" class="pec-logo pec-logo--dark">
+              <div>
+                <h3 class="pec-title">Muscle Studio</h3>
+                <div class="project-category">Native Android Gym App</div>
+              </div>
+              <button class="project-close">×</button>
+            </div>
+            <div class="pec-body">
+              <div class="pec-section">
+                <h4>Overview</h4>
+                <p>Muscle Studio is a fitness application designed to help gym owners and members manage workouts, track member progress, organize training routines, and stay consistent with fitness goals. Currently live with 303 members tracked in production.</p>
+              </div>
+              <div class="pec-section">
+                <h4>Key Features</h4>
+                <ul>
+                  <li>5 dynamic visual themes selectable by the user</li>
+                  <li>Live member search with instant results</li>
+                  <li>WhatsApp backup integration for member data</li>
+                  <li>303+ members managed in production</li>
+                  <li>Offline-first architecture</li>
+                </ul>
+              </div>
+              <div class="pec-section">
+                <h4>My Contribution</h4>
+                <p>Designed and built the entire application solo using Flutter and Dart — from initial concept and UI design to final deployment. No team, no shortcuts.</p>
+              </div>
+              <div class="pec-section">
+                <h4>Future Roadmap</h4>
+                <p>Cloud sync, attendance tracking, payment reminders, and a subscription-based model for multi-gym deployment.</p>
+              </div>
+              <div class="pec-tags">
+                <span class="tag">Flutter</span>
+                <span class="tag">Dart</span>
+                <span class="tag">Android</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Health & Fitness</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 03 — LinkedIn Strategy -->
+        <div class="project-card reveal" data-project="linkedin" style="transition-delay:0.2s;">
+          <div class="project-card-inner">
+            <div class="project-thumb">
+              <img 
+                src="assets/linkedin_project.jpg" 
+                alt="LinkedIn Growth Strategy"
+                loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <div class="project-logo project-logo--text" style="background:#0077B5; color:#fff;">in</div>
+              <div class="project-card-text">
+                <div class="project-category">Content Strategy · B2B Marketing</div>
+                <h3 class="project-title">LinkedIn Strategy</h3>
+                <p class="project-excerpt">An AI-powered content engine and growth strategy built from zero on LinkedIn.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">Content Strategy</span>
+                <span class="tag">AI Automation</span>
+                <span class="tag">B2B Growth</span>
+              </div>
+            </div>
+            <div class="project-expand-btn">
+              <span>View Project</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+          <!-- Expanded Content -->
+          <div class="project-expanded-content">
+            <div class="pec-header">
+              <div class="pec-logo project-logo--text" style="background:#0077B5; color:#fff; font-size:1.5rem; font-weight:800; display:flex; align-items:center; justify-content:center;">in</div>
+              <div>
+                <h3 class="pec-title">LinkedIn Strategy</h3>
+                <div class="project-category">Content Strategy · B2B Marketing</div>
+              </div>
+              <button class="project-close">×</button>
+            </div>
+            <div class="pec-body">
+              <div class="pec-section">
+                <h4>Overview</h4>
+                <p>A repeatable, AI-powered content engine built to produce high-quality LinkedIn carousels, captions, and hooks at scale. Grew LinkedIn presence from zero using a build-in-public and thought leadership strategy.</p>
+              </div>
+              <div class="pec-section">
+                <h4>Strategy Components</h4>
+                <ul>
+                  <li>Build-in-public narrative framework</li>
+                  <li>Thought leadership content architecture</li>
+                  <li>Automated carousel and hook generation pipeline</li>
+                  <li>Consistent personal brand positioning</li>
+                  <li>Audience targeting and outreach sequences</li>
+                </ul>
+              </div>
+              <div class="pec-section">
+                <h4>Automation Workflow</h4>
+                <p>Leveraged n8n and Make.com to build automated content pipelines — from topic discovery and research to drafting, formatting, and scheduling — reducing manual content work by over 80%.</p>
+              </div>
+              <div class="pec-tags">
+                <span class="tag">Strategy</span>
+                <span class="tag">Content Engine</span>
+                <span class="tag">AI Automation</span>
+                <span class="tag">Personal Brand</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 04 — Instagram Strategy -->
+        <div class="project-card reveal" data-project="instagram" style="transition-delay:0.3s;">
+          <div class="project-card-inner">
+            <div class="project-thumb">
+              <img 
+                src="assets/instagram_project.jpg" 
+                alt="Instagram Marketing Strategy"
+                loading="lazy">
+            </div>
+            <div class="project-card-body">
+              <div class="project-logo project-logo--text" style="background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff;">IG</div>
+              <div class="project-card-text">
+                <div class="project-category">Social Media Management · Branding</div>
+                <h3 class="project-title">Instagram Strategy</h3>
+                <p class="project-excerpt">End-to-end Instagram management for client brands, driving organic engagement and growth.</p>
+              </div>
+              <div class="project-tags">
+                <span class="tag">SMM</span>
+                <span class="tag">Reels</span>
+                <span class="tag">Branding</span>
+                <span class="tag">Content</span>
+              </div>
+            </div>
+            <div class="project-expand-btn">
+              <span>View Project</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+            </div>
+          </div>
+          <!-- Expanded Content -->
+          <div class="project-expanded-content">
+            <div class="pec-header">
+              <div class="pec-logo project-logo--text" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; font-size:1rem; font-weight:800; display:flex; align-items:center; justify-content:center;">IG</div>
+              <div>
+                <h3 class="pec-title">Instagram Strategy</h3>
+                <div class="project-category">Social Media Management · Creative Direction</div>
+              </div>
+              <button class="project-close">×</button>
+            </div>
+            <div class="pec-body">
+              <div class="pec-section">
+                <h4>Overview</h4>
+                <p>End-to-end Instagram management for multiple client brands simultaneously during my role at Watermelon Digital Marketing. Responsible for content creation, visual direction, reels production, and audience growth strategy.</p>
+              </div>
+              <div class="pec-section">
+                <h4>Scope of Work</h4>
+                <ul>
+                  <li>Managed three simultaneous client Instagram pages</li>
+                  <li>Produced branded marketing visuals and reels</li>
+                  <li>Analyzed audience trends to shape creative direction</li>
+                  <li>Created consistent brand identity across all touchpoints</li>
+                  <li>Optimized posting cadence for maximum organic reach</li>
+                </ul>
+              </div>
+              <div class="pec-section">
+                <h4>Tools</h4>
+                <p>Adobe Photoshop for static visuals, Premiere Pro and CapCut for reels production, and Canva for rapid content delivery.</p>
+              </div>
+              <div class="pec-tags">
+                <span class="tag">SMM</span>
+                <span class="tag">Reels</span>
+                <span class="tag">Graphic Design</span>
+                <span class="tag">Brand Identity</span>
+                <span class="tag">Community Growth</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container reveal">
+      <div class="section-label" style="justify-content: center; margin-bottom: 1.5rem;">Let's Connect</div>
+      <h2 class="title-lg">Ready to build something <span class="serif-italic">extraordinary?</span></h2>
+      <p class="contact-subtext">Open to freelance projects, collaborations, and full-time opportunities. Based in Kolkata — working globally.</p>
+      <a href="mailto:mdsaakib002@gmail.com" class="contact-email" aria-label="Send email to MD Sakib">mdsaakib002@gmail.com</a>
+      <div class="contact-actions">
+        <a href="https://linkedin.com/in/sakib-md" target="_blank" rel="noopener noreferrer" class="btn-secondary" aria-label="Visit LinkedIn Profile">LinkedIn</a>
+        <a href="tel:+917595965069" class="btn-secondary" aria-label="Call MD Sakib">+91 7595965069</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-inner">
+      <div class="logo" aria-label="MD Sakib">MD <span>Sakib</span></div>
+      <div class="footer-socials">
+        <a href="https://linkedin.com/in/sakib-md" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">LinkedIn</a>
+        <a href="mailto:mdsaakib002@gmail.com" class="social-link" aria-label="Email">Email</a>
+      </div>
+      <div class="footer-copy">&copy; 2026 MD Sakib. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

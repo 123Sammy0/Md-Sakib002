@@ -1,0 +1,5 @@
+.ps1
+temp_zip_extract/
+temp_clean_ref.html
+*.zip
+.gemini/
