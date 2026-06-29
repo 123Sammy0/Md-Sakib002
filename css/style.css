@@ -258,7 +258,7 @@ section {
 }
 
 .nav-cta {
-  padding: 0.7rem 1.8rem;
+  padding: 0.6rem 1.4rem;
   font-size: 0.65rem;
 }
 
@@ -592,117 +592,128 @@ section {
   pointer-events: all;
 }
 
+/* ============================================================
+   SKILLS GRID (Premium 3D Flip Cards)
+============================================================ */
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-md);
-  position: relative;
+  margin-top: var(--space-lg);
 }
 
 .skill-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-card);
-  box-shadow: var(--shadow-ambient);
-  padding: var(--space-md);
-  cursor: default; /* Not clickable for expansion anymore */
-  transition: transform 0.5s var(--ease-cinematic), box-shadow 0.5s var(--ease-cinematic);
+  perspective: 2000px;
   position: relative;
+  min-height: 220px;
+  cursor: pointer;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  transition: transform 0.5s var(--ease-cinematic), box-shadow 0.5s var(--ease-cinematic), z-index 0s;
   will-change: transform, box-shadow;
-  transform-origin: center center;
+  border-radius: var(--radius-card);
 }
 
 .skill-card:hover {
-  transform: translateY(-6px) scale(1.02) rotateX(2deg) rotateY(-2deg);
-  box-shadow: var(--shadow-hero);
+  transform: translateY(-6px) scale(1.03);
   z-index: 10;
 }
+.skill-card:hover .skill-face {
+  box-shadow: var(--shadow-hero);
+  border-color: rgba(0, 0, 0, 0.08);
+}
 
+.skill-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s var(--ease-cinematic);
+  will-change: transform;
+}
+
+.skill-face {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  backface-visibility: hidden;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  box-shadow: var(--inner-bevel-paper), var(--shadow-ambient);
+  display: flex;
+  flex-direction: column;
+  transition: box-shadow 0.5s var(--ease-cinematic), border-color 0.5s var(--ease-cinematic);
+}
+
+/* Front Face */
 .skill-front {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.skill-title {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-primary);
-}
-
-.skill-indicator {
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: var(--bg-secondary);
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  font-weight: 300;
-  color: var(--text-muted);
-  transition: transform 0.4s var(--ease-cinematic), background 0.4s var(--ease-cinematic), color 0.4s;
+  align-items: center;
+  text-align: center;
 }
 
-.skill-card:hover .skill-indicator {
-  background: var(--text-primary);
-  color: #FFF;
+.skill-icon {
+  margin-bottom: 0.8rem;
+  color: var(--text-primary);
+  transition: transform 0.4s var(--ease-cinematic), color 0.4s var(--ease-cinematic);
 }
 
-.skill-details {
-  height: 0;
-  opacity: 0;
-  overflow: hidden;
-  transition: opacity 0.4s var(--ease-cinematic);
-}
-
-.skill-details-content {
-  padding-top: var(--space-md);
-  margin-top: var(--space-md);
-  border-top: 1px solid var(--border-light);
-}
-
-.skill-details h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+.skill-card:hover .skill-icon {
+  transform: translateY(-2px) scale(1.05);
   color: var(--accent-red);
 }
 
-.skill-details p {
-  font-size: 0.9rem;
+.skill-front .skill-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Back Face */
+.skill-back {
+  transform: rotateY(180deg);
+  overflow-y: auto;
+  justify-content: center;
+  text-align: left;
+}
+
+.skill-back::-webkit-scrollbar { display: none; }
+.skill-back { -ms-overflow-style: none; scrollbar-width: none; }
+
+.skill-desc {
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--text-secondary);
   margin-bottom: 1rem;
 }
 
-.skill-meta {
+.skill-meta-group {
+  margin-bottom: 0.75rem;
+}
+
+.skill-meta-group:last-child {
+  margin-bottom: 0;
+}
+
+.skill-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--accent-red);
+  text-transform: uppercase;
+  margin-bottom: 0.2rem;
+}
+
+.skill-value {
+  display: block;
   font-size: 0.8rem;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-.skill-meta strong {
+  line-height: 1.4;
   color: var(--text-primary);
 }
-
-.skill-close {
-  position: absolute;
-  top: 1rem; right: 1rem;
-  width: 32px; height: 32px;
-  background: var(--bg-secondary);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  color: var(--text-primary);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s var(--ease-cinematic);
-}
-
-/* Expanded State Removed per user request for premium hover only */
 
 /* ============================================================
    EXPERIENCE MILESTONES (Editorial Layout)
@@ -1375,36 +1386,59 @@ section {
   .title-lg { font-size: clamp(1.8rem, 6vw, 2.5rem); }
   .title-md { font-size: clamp(1.4rem, 5vw, 1.8rem); }
   
-  /* Hero adjustments - premium balanced composition side-by-side */
+  /* Hero adjustments - Side-by-side Mobile Editorial Flow */
   .hero { min-height: 80vh; padding-top: 80px; }
   .hero-grid { 
-    grid-template-columns: 1fr 1fr; 
-    gap: var(--space-md); 
-    align-items: center; /* Vertically align text block with center of card */
+    display: grid; 
+    grid-template-columns: 1.3fr 1fr; 
+    align-items: center; 
+    text-align: left; 
+    gap: 0.75rem;
   }
-  .playing-card { width: 100%; max-width: 240px; margin: 0 auto; }
-  .hero-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: var(--space-md); }
-  .hero-subtitle { font-size: 0.65rem; margin-bottom: var(--space-sm); }
+  .hero-content {
+    display: block; 
+  }
+  .hero-subtitle { margin-bottom: 0.4rem; font-size: 0.6rem; }
+  .hero-title { 
+    margin-bottom: 0.5rem; 
+    font-size: clamp(1.6rem, 7vw, 2.5rem); 
+    line-height: 1.1; 
+    letter-spacing: -0.04em; 
+  }
+  .hero-desc { 
+    margin-bottom: 1rem; 
+    font-size: 0.8rem; 
+    line-height: 1.5; 
+    max-width: 100%; 
+  }
+  .card-container { 
+    margin-bottom: 0; 
+    width: 100%; 
+    display: flex;
+    justify-content: flex-end;
+  }
+  .playing-card { width: 100%; max-width: 180px; margin: 0; }
   
   .hero-actions {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.5rem;
     width: 100%;
   }
   
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary {
-    width: 100%;
-    padding: 0.9rem 1.5rem;
-    font-size: 0.65rem;
+    flex: 1;
+    padding: 0.7rem 0;
+    font-size: 0.6rem;
+    width: auto;
   }
   
   section { padding: var(--space-xl) 0; }
   
   /* Grids to single column */
   .about-columns { grid-template-columns: 1fr; }
-  .skills-grid { grid-template-columns: 1fr; }
   .experience-masonry { grid-template-columns: 1fr; }
   .projects-grid { grid-template-columns: 1fr; }
   
@@ -1428,6 +1462,21 @@ section {
     align-items: center;
     gap: 0.5rem;
   }
+  
+  /* Force 3x3 Skills Grid on Mobile */
+  .skills-grid { 
+    gap: 0.4rem; 
+    grid-template-columns: repeat(3, 1fr); 
+  }
+  .skill-card { min-height: 130px; }
+  .skill-face { padding: 0.5rem; border-radius: 8px; }
+  .skill-card { border-radius: 8px; }
+  .skill-icon { width: 18px; height: 18px; margin-bottom: 0.3rem; }
+  .skill-front .skill-title { font-size: 0.55rem; line-height: 1.1; font-weight: 700; }
+  .skill-desc { font-size: 0.45rem; line-height: 1.2; margin-bottom: 0.3rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .skill-meta-group { margin-bottom: 0.2rem; }
+  .skill-label { font-size: 0.35rem; margin-bottom: 0.05rem; }
+  .skill-value { font-size: 0.4rem; line-height: 1.1; }
   .contact-actions .btn-secondary {
     width: 100%;
     max-width: 280px;
@@ -1445,20 +1494,19 @@ section {
   
   /* Hero adjustments - tight side-by-side */
   .hero-grid { 
-    grid-template-columns: 1.2fr 1fr; 
-    gap: 0.75rem; 
+    grid-template-columns: 1.4fr 1fr; 
+    gap: 0.5rem; 
   }
-  .playing-card { width: 100%; max-width: 180px; }
-  .hero-desc { font-size: 0.8rem; margin-bottom: var(--space-sm); }
-  .hero-subtitle { font-size: 0.55rem; margin-bottom: var(--space-xs); }
+  .playing-card { width: 100%; max-width: 150px; }
+  .hero-subtitle { font-size: 0.55rem; margin-bottom: 0.2rem; }
+  .hero-title { font-size: clamp(1.2rem, 6vw, 1.8rem); margin-bottom: 0.4rem; }
+  .hero-desc { font-size: 0.7rem; margin-bottom: 0.75rem; }
   
-  .hero-actions {
-    gap: 0.5rem;
-  }
+  .hero-actions { gap: 0.4rem; }
   .hero-actions .btn-primary,
   .hero-actions .btn-secondary {
-    padding: 0.7rem 1rem;
-    font-size: 0.6rem;
+    padding: 0.6rem 0;
+    font-size: 0.55rem;
   }
   
   .project-thumb { height: 180px; }
