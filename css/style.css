@@ -1407,28 +1407,29 @@ section {
   }
 
   /* Hero adjustments - Side-by-side Mobile Editorial Flow */
-  .hero { min-height: 80vh; padding-top: 80px; }
+  .hero { min-height: 80vh; padding-top: 20px; }
   .hero-grid { 
     display: grid; 
-    grid-template-columns: 1.3fr 1fr; 
-    align-items: center; 
+    grid-template-columns: 1fr 1.1fr; 
+    align-items: flex-start; 
     text-align: left; 
     gap: 0.75rem;
   }
   .hero-content {
     display: block; 
+    margin-top: 5px;
   }
-  .hero-subtitle { margin-bottom: 0.4rem; font-size: clamp(0.6875rem, 2.8vw, 0.85rem); }
+  .hero-subtitle { margin-bottom: 0.4rem; font-size: clamp(0.65rem, 2.5vw, 0.85rem); }
   .hero-title { 
     margin-bottom: 0.5rem; 
-    font-size: clamp(1.75rem, 7vw, 7rem); 
+    font-size: clamp(1rem, 5vw, 7rem); 
     line-height: 1.15; 
     letter-spacing: -0.04em; 
   }
   .hero-desc { 
     margin-bottom: 1rem; 
-    font-size: clamp(0.9375rem, 4vw, 1.15rem); 
-    line-height: 1.5; 
+    font-size: clamp(0.75rem, 3.2vw, 1.15rem); 
+    line-height: 1.4; 
     max-width: 100%; 
   }
   .card-container { 
@@ -1508,6 +1509,15 @@ section {
   .contact-actions .btn-secondary {
     width: 100%;
     max-width: 280px;
+    max-width: 280px;
+  }
+  
+  /* About Section overrides */
+  .about-editorial .title-lg {
+    font-size: clamp(24px, 6vw, 36px) !important;
+  }
+  .about-editorial .title-lg .serif-italic {
+    color: var(--text-primary) !important;
   }
 }
 
@@ -1520,10 +1530,11 @@ section {
   
   /* Hero adjustments - tight side-by-side */
   .hero-grid { 
-    grid-template-columns: 1.4fr 1fr; 
+    grid-template-columns: 1fr 1.15fr; 
     gap: 0.5rem; 
+    align-items: flex-start;
   }
-  .playing-card { width: 100%; max-width: 150px; }
+  .playing-card { width: 100%; max-width: 200px; margin: 0 auto; }
 }
 
 /* ============================================================
