@@ -1381,11 +1381,14 @@ section {
     letter-spacing: 0.1em;
   }
   
-  /* Typography */
-  .title-xl { font-size: clamp(2.2rem, 8vw, 3.5rem); }
-  .title-lg { font-size: clamp(1.8rem, 6vw, 2.5rem); }
-  .title-md { font-size: clamp(1.4rem, 5vw, 1.8rem); }
+  /* Typography (Mobile Fluid Scale, preserving desktop max) */
+  .title-xl { font-size: clamp(1.75rem, 7vw, 7rem); } /* 28px min */
+  .title-lg { font-size: clamp(1.375rem, 5.5vw, 4rem); } /* 22px min */
+  .title-md { font-size: clamp(1.2rem, 5vw, 2.5rem); } /* ~19px min */
   
+  body, p, .text-lead, .about-content p, .hero-desc { font-size: clamp(0.9375rem, 4vw, 1.15rem); line-height: 1.5; } /* 15px min */
+  .tag, .skill-label, .section-label, .project-category, .milestone-date { font-size: clamp(0.6875rem, 2.8vw, 0.85rem); } /* 11px min */
+
   /* Hero adjustments - Side-by-side Mobile Editorial Flow */
   .hero { min-height: 80vh; padding-top: 80px; }
   .hero-grid { 
@@ -1398,16 +1401,16 @@ section {
   .hero-content {
     display: block; 
   }
-  .hero-subtitle { margin-bottom: 0.4rem; font-size: 0.6rem; }
+  .hero-subtitle { margin-bottom: 0.4rem; font-size: clamp(0.6875rem, 2.8vw, 0.85rem); }
   .hero-title { 
     margin-bottom: 0.5rem; 
-    font-size: clamp(1.6rem, 7vw, 2.5rem); 
-    line-height: 1.1; 
+    font-size: clamp(1.75rem, 7vw, 7rem); 
+    line-height: 1.15; 
     letter-spacing: -0.04em; 
   }
   .hero-desc { 
     margin-bottom: 1rem; 
-    font-size: 0.8rem; 
+    font-size: clamp(0.9375rem, 4vw, 1.15rem); 
     line-height: 1.5; 
     max-width: 100%; 
   }
@@ -1488,8 +1491,6 @@ section {
 =========================================================== */
 @media (max-width: 480px) {
   .container { padding: 0 1.25rem; }
-  .title-xl { font-size: clamp(1.8rem, 7vw, 2.2rem); }
-  
   section { padding: var(--space-lg) 0; }
   
   /* Hero adjustments - tight side-by-side */
@@ -1498,9 +1499,6 @@ section {
     gap: 0.5rem; 
   }
   .playing-card { width: 100%; max-width: 150px; }
-  .hero-subtitle { font-size: 0.55rem; margin-bottom: 0.2rem; }
-  .hero-title { font-size: clamp(1.2rem, 6vw, 1.8rem); margin-bottom: 0.4rem; }
-  .hero-desc { font-size: 0.7rem; margin-bottom: 0.75rem; }
   
   .hero-actions { gap: 0.4rem; }
   .hero-actions .btn-primary,
@@ -1511,9 +1509,7 @@ section {
   
   .project-thumb { height: 180px; }
   
-  .milestone-company { font-size: 1.25rem; }
-  
-  .contact-email { font-size: 1.1rem; word-break: break-all; }
+  .project-thumb { height: 180px; }
 }
 
 /* ============================================================
