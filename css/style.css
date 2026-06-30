@@ -271,6 +271,10 @@ section {
   font-size: var(--text-xs);
 }
 
+.mobile-cta-wrapper {
+  display: none;
+}
+
 .btn-primary {
   background-color: var(--text-primary); /* Apple/Linear style black button */
   color: #FFF;
@@ -818,7 +822,7 @@ section {
   overflow: visible;
   position: relative;
   z-index: 1;
-  aspect-ratio: 3 / 4; /* Dynamic fixed height */
+  aspect-ratio: 2 / 3; /* Dynamic fixed height to ensure content fits */
 }
 
 .project-card-inner {
@@ -836,10 +840,10 @@ section {
 /* Thumbnail */
 .project-thumb {
   position: absolute;
-  top: 0; 
-  left: 0; 
-  right: 0;
-  height: 55%; 
+  top: 12px; 
+  left: 12px; 
+  right: 12px;
+  height: calc(48% - 12px); 
   border-radius: calc(var(--radius-card) - 4px);
   overflow: hidden;
   background: var(--bg-secondary);
@@ -891,14 +895,14 @@ section {
 /* Card Body */
 .project-card-body {
   position: absolute;
-  bottom: 0; 
-  left: 0; 
-  right: 0;
-  height: 45%; 
-  padding: 0.5rem;
+  top: 48%; 
+  bottom: 12px; 
+  left: 12px; 
+  right: 12px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start; /* Ensure content flows down from the image */
   gap: 0.5rem;
   z-index: 3;
 }
@@ -1391,6 +1395,7 @@ section {
   }
   
   .mobile-cta-wrapper {
+    display: block;
     margin-top: auto;
     padding-top: 2rem;
     border-top: 1px solid var(--border-light);
@@ -1437,8 +1442,8 @@ section {
   .hero-actions {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    flex-wrap: nowrap;
+    justify-content: center;
     gap: clamp(10px, 3vw, 16px);
     width: 100%;
   }
@@ -1449,12 +1454,13 @@ section {
     align-items: center;
     justify-content: center;
     min-height: clamp(44px, 12vw, 56px);
-    width: auto;
-    padding: clamp(12px, 3vw, 18px) clamp(16px, 4vw, 28px);
-    font-size: clamp(13px, 3.2vw, 16px);
+    width: 100%;
+    padding: clamp(10px, 2vw, 18px) clamp(10px, 2vw, 28px);
+    font-size: clamp(10px, 2.8vw, 16px);
     line-height: 1.2;
     text-align: center;
-    flex: 0 1 auto;
+    flex: 1;
+    white-space: nowrap;
   }
   
   section { padding: var(--space-xl) 0; }
@@ -1518,8 +1524,6 @@ section {
     gap: 0.5rem; 
   }
   .playing-card { width: 100%; max-width: 150px; }
-  
-  .project-thumb { height: 180px; }
 }
 
 /* ============================================================
