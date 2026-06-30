@@ -1419,16 +1419,17 @@ section {
     display: block; 
     margin-top: 5px;
   }
-  .hero-subtitle { margin-bottom: 0.4rem; font-size: clamp(0.65rem, 2.5vw, 0.85rem); }
+  .hero-subtitle { margin-bottom: 0.4rem; font-size: clamp(0.65rem, 2.5vw, 0.85rem); font-weight: 700; }
+  .title-nowrap { white-space: nowrap; }
   .hero-title { 
     margin-bottom: 0.5rem; 
-    font-size: clamp(1rem, 5vw, 7rem); 
+    font-size: clamp(0.9rem, 4.5vw, 4rem); /* Strictly smaller to prevent grid overflow */
     line-height: 1.15; 
     letter-spacing: -0.04em; 
   }
   .hero-desc { 
     margin-bottom: 1rem; 
-    font-size: clamp(0.75rem, 3.2vw, 1.15rem); 
+    font-size: clamp(0.65rem, 2.8vw, 1.15rem); /* Much smaller text */
     line-height: 1.4; 
     max-width: 100%; 
   }
@@ -1454,10 +1455,10 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: clamp(44px, 12vw, 56px);
+    min-height: clamp(36px, 10vw, 56px); /* slightly smaller height */
     width: 100%;
-    padding: clamp(10px, 2vw, 18px) clamp(10px, 2vw, 28px);
-    font-size: clamp(10px, 2.8vw, 16px);
+    padding: clamp(8px, 1.5vw, 18px) clamp(8px, 1.5vw, 28px);
+    font-size: clamp(8px, 2.2vw, 16px); /* completely scalable button text */
     line-height: 1.2;
     text-align: center;
     flex: 1;
@@ -1514,10 +1515,11 @@ section {
   
   /* About Section overrides */
   .about-editorial .title-lg {
-    font-size: clamp(24px, 6vw, 36px) !important;
+    font-size: clamp(20px, 5vw, 36px) !important;
   }
-  .about-editorial .title-lg .serif-italic {
-    color: var(--text-primary) !important;
+  .about-editorial p, .about-editorial .text-lead {
+    font-size: clamp(0.75rem, 3.2vw, 1rem) !important;
+    line-height: 1.4 !important;
   }
 }
 
@@ -1530,11 +1532,13 @@ section {
   
   /* Hero adjustments - tight side-by-side */
   .hero-grid { 
-    grid-template-columns: 1fr 1.15fr; 
+    grid-template-columns: 1fr 1fr; 
     gap: 0.5rem; 
     align-items: flex-start;
   }
-  .playing-card { width: 100%; max-width: 200px; margin: 0 auto; }
+  .playing-card { width: 100%; max-width: 100%; margin: 0 auto; }
+  .title-nowrap { white-space: nowrap; }
+  .hero-title { font-size: clamp(0.75rem, 4vw, 3rem); }
 }
 
 /* ============================================================
