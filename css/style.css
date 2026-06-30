@@ -1424,18 +1424,24 @@ section {
   
   .hero-actions {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 0.5rem;
+    gap: 12px;
     width: 100%;
   }
   
-  .hero-actions .btn-primary,
-  .hero-actions .btn-secondary {
-    flex: 1;
-    padding: 0.7rem 0;
-    font-size: 0.6rem;
-    width: auto;
+  /* Global Mobile Button Fix */
+  .btn-primary, .btn-secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    width: fit-content;
+    padding: clamp(12px, 3vw, 18px) clamp(16px, 4vw, 28px);
+    font-size: clamp(13px, 3.2vw, 16px);
+    line-height: 1.2;
+    text-align: center;
+    flex: 0 1 auto;
   }
   
   section { padding: var(--space-xl) 0; }
@@ -1499,15 +1505,6 @@ section {
     gap: 0.5rem; 
   }
   .playing-card { width: 100%; max-width: 150px; }
-  
-  .hero-actions { gap: 0.4rem; }
-  .hero-actions .btn-primary,
-  .hero-actions .btn-secondary {
-    padding: 0.6rem 0;
-    font-size: 0.55rem;
-  }
-  
-  .project-thumb { height: 180px; }
   
   .project-thumb { height: 180px; }
 }
