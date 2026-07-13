@@ -1,0 +1,13 @@
+{
+  "name": "sakib-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio of MD Sakib",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.42.1",
+    "@types/node": "^20.11.24"
+  }
+}

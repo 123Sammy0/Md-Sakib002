@@ -175,15 +175,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
-    // Flip interaction on click
-    card.addEventListener('click', () => {
-      card.classList.toggle('flipped');
-      if (card.classList.contains('flipped')) {
+    const isHeroCard = card.classList.contains('playing-card');
+
+    if (isHeroCard) {
+      // Flip interaction on hover (mouseenter / mouseleave) for Hero Card
+      card.addEventListener('mouseenter', () => {
+        card.classList.add('flipped');
         card.style.transform = `perspective(2000px) rotateY(180deg)`;
-      } else {
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('flipped');
         card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
-      }
-    });
+      });
+    } else {
+      // Flip interaction on click for other cards
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+        if (card.classList.contains('flipped')) {
+          card.style.transform = `perspective(2000px) rotateY(180deg)`;
+        } else {
+          card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
+        }
+      });
+    }
   });
   
   // 4. Fill Ticker Content Dynamically

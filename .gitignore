@@ -3,3 +3,7 @@ temp_zip_extract/
 temp_clean_ref.html
 *.zip
 .gemini/
+node_modules/
+test-results/
+playwright-report/
+playwright/.cache/
