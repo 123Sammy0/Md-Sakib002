@@ -178,13 +178,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const isHeroCard = card.classList.contains('playing-card');
 
     if (isHeroCard) {
+      // Find the stable parent container to avoid hover glitch (flickering)
+      const container = card.closest('.card-container') || card.parentElement;
+
       // Flip interaction on hover (mouseenter / mouseleave) for Hero Card
-      card.addEventListener('mouseenter', () => {
+      container.addEventListener('mouseenter', () => {
         card.classList.add('flipped');
         card.style.transform = `perspective(2000px) rotateY(180deg)`;
       });
 
-      card.addEventListener('mouseleave', () => {
+      container.addEventListener('mouseleave', () => {
         card.classList.remove('flipped');
         card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
       });
