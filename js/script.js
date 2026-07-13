@@ -178,18 +178,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const isHeroCard = card.classList.contains('playing-card');
 
     if (isHeroCard) {
-      // Find the stable parent container to avoid hover glitch (flickering)
-      const container = card.closest('.card-container') || card.parentElement;
+      let isFlipped = false;
+      let baseRect = null;
 
       // Flip interaction on hover (mouseenter / mouseleave) for Hero Card
-      container.addEventListener('mouseenter', () => {
+      // We capture the initial 2D bounding box to avoid the 3D CSS distortion glitch.
+      card.addEventListener('mouseenter', () => {
+        if (isFlipped) return;
+        baseRect = card.getBoundingClientRect();
+        isFlipped = true;
         card.classList.add('flipped');
         card.style.transform = `perspective(2000px) rotateY(180deg)`;
       });
 
-      container.addEventListener('mouseleave', () => {
-        card.classList.remove('flipped');
-        card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
+      // Track the mouse globally so it doesn't flicker when the 3D element shrinks under the cursor
+      document.addEventListener('mousemove', (e) => {
+        if (!isFlipped || !baseRect) return;
+
+        // Provide a small buffer to make the hover state forgiving
+        const buffer = 15;
+        const isOutside = e.clientX < baseRect.left - buffer || 
+                          e.clientX > baseRect.right + buffer ||
+                          e.clientY < baseRect.top - buffer || 
+                          e.clientY > baseRect.bottom + buffer;
+
+        if (isOutside) {
+          isFlipped = false;
+          card.classList.remove('flipped');
+          card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
+        }
+      });
+      
+      // Failsafe: if the user scrolls significantly, unflip the card
+      document.addEventListener('scroll', () => {
+        if (isFlipped) {
+          isFlipped = false;
+          card.classList.remove('flipped');
+          card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
+        }
       });
     } else {
       // Flip interaction on click for other cards
