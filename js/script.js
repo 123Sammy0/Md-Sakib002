@@ -150,6 +150,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const interactiveCards = document.querySelectorAll('.interactive-card');
   
   interactiveCards.forEach(card => {
+    const isHeroCard = card.classList.contains('playing-card');
+    
+    // Completely skip JS events for the Hero Card. 
+    // It is exclusively handled by pure CSS hover on its stable wrapper to eliminate all flickering.
+    if (isHeroCard) return;
+
     // 3D Tilt Effect
     card.addEventListener('mousemove', (e) => {
       // Do not tilt if the card is already flipped to its back
@@ -175,59 +181,15 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
     
-    const isHeroCard = card.classList.contains('playing-card');
-
-    if (isHeroCard) {
-      let isFlipped = false;
-      let baseRect = null;
-
-      // Flip interaction on hover (mouseenter / mouseleave) for Hero Card
-      // We capture the initial 2D bounding box to avoid the 3D CSS distortion glitch.
-      card.addEventListener('mouseenter', () => {
-        if (isFlipped) return;
-        baseRect = card.getBoundingClientRect();
-        isFlipped = true;
-        card.classList.add('flipped');
+    // Flip interaction on click for other cards
+    card.addEventListener('click', () => {
+      card.classList.toggle('flipped');
+      if (card.classList.contains('flipped')) {
         card.style.transform = `perspective(2000px) rotateY(180deg)`;
-      });
-
-      // Track the mouse globally so it doesn't flicker when the 3D element shrinks under the cursor
-      document.addEventListener('mousemove', (e) => {
-        if (!isFlipped || !baseRect) return;
-
-        // Provide a small buffer to make the hover state forgiving
-        const buffer = 15;
-        const isOutside = e.clientX < baseRect.left - buffer || 
-                          e.clientX > baseRect.right + buffer ||
-                          e.clientY < baseRect.top - buffer || 
-                          e.clientY > baseRect.bottom + buffer;
-
-        if (isOutside) {
-          isFlipped = false;
-          card.classList.remove('flipped');
-          card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
-        }
-      });
-      
-      // Failsafe: if the user scrolls significantly, unflip the card
-      document.addEventListener('scroll', () => {
-        if (isFlipped) {
-          isFlipped = false;
-          card.classList.remove('flipped');
-          card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
-        }
-      });
-    } else {
-      // Flip interaction on click for other cards
-      card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-        if (card.classList.contains('flipped')) {
-          card.style.transform = `perspective(2000px) rotateY(180deg)`;
-        } else {
-          card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
-        }
-      });
-    }
+      } else {
+        card.style.transform = `perspective(2000px) rotateX(0) rotateY(0)`;
+      }
+    });
   });
   
   // 4. Fill Ticker Content Dynamically

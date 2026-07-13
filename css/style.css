@@ -370,10 +370,23 @@ section {
   border-radius: var(--radius-card); /* Strict 20px radius */
 }
 
-/* Hero card specific aspect ratio and max-width */
-.playing-card {
-  max-width: 400px; /* Increased visual weight */
+/* Hero card wrapper for completely stable 3D hit area */
+.playing-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
   aspect-ratio: 2.5 / 3.5;
+  perspective: 2000px;
+}
+
+/* Force CSS hover flip, !important overrides JS tilt if any */
+.playing-card-wrapper:hover .playing-card {
+  transform: rotateY(180deg) !important;
+}
+
+/* Hero card fills the wrapper */
+.playing-card {
+  height: 100%;
 }
 
 /* Flipped state */
@@ -1351,7 +1364,7 @@ section {
   
   .about-columns { grid-template-columns: 1fr; gap: var(--space-lg); }
   
-  .playing-card { max-width: 100%; width: 280px; margin: 0 auto; }
+  .playing-card-wrapper { width: 100%; max-width: 100%; margin: 0 auto; }
   .card-container { display: flex; justify-content: flex-end; }
   
   .experience-masonry { grid-template-columns: 1fr 1fr; }
@@ -1422,7 +1435,7 @@ section {
     max-width: 100%; 
   }
   .card-container { margin-bottom: 0; width: 100%; display: flex; justify-content: flex-end; }
-  .playing-card { width: 100%; max-width: none; margin: 0; }
+  .playing-card-wrapper { width: 100%; max-width: none; margin: 0; }
   
   .hero-actions {
     display: flex;
